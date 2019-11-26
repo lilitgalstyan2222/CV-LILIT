@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lilit Galstyan</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        body,html{
+            min-height: 100%;
+            background-color: #f5fbfa;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+        a,a:hover{
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+        header{
+            padding: 50px 30px 120px 30px;
+            background-color: #408582;
+        }
+        .wrapper{
+            max-width: 930px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .top-box{
+            background-color: #fff;
+            width: 100%;
+            float: left;
+            margin-top: -80px;
+            -webkit-box-shadow: 0 0 10px 0 #b4b4b4;
+            -moz-box-shadow: 0 0 10px 0 #b4b4b4;
+            box-shadow: 0 0 10px 0 #b4b4b4;
+            margin-bottom: 20px;
+        }
+        .name{
+            margin-bottom: 0;
+        }
+        .white-box{
+            background-color: #fff;
+            width: 100%;
+            float: left;
+            -webkit-box-shadow: 0 0 10px 0 #e7e7e7;
+            -moz-box-shadow: 0 0 10px 0 #e7e7e7;
+            box-shadow: 0 0 10px 0 #e7e7e7;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        .white-box a{
+            color: #2e3bff;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .image-box img{
+            max-width: 300px;
+            vertical-align: top;
+        }
+        .white-color{
+            color: #fff;
+        }
+        ul {
+            list-style: none;
+        }
+        ul li{
+            margin-bottom: 5px;
+        }
+        .bio-box{
+            padding: 30px;
+        }
+        .social-links a{
+            display: table;
+            background-color: #408582;
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;    font-size: 20px;
+            padding: 10px;
+            text-align: center;
+
+        }
+        .social-links{
+            margin-top: 15px;
+        }
+        .social-links a i{
+            color: #fff;
+        }
+        .social-links a:hover{
+            background-color: #4ba4a1;
+        }
+        .social-links li{
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .block-title{
+            color: #408582;
+        }
+        h2{
+            margin-bottom: 20px;
+        }
+        p{
+            margin-bottom: 10px;
+        }
+        #filters
+        {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        #filters li{
+            display: inline-block;
+            width: 20%;
+        }
+        #filters li button{
+            width: 100%;
+            cursor: pointer;
+            border: 1px solid #fff;
+            padding: 10px;
+        }
+        #filters li button:focus{
+            outline: none;
+        }
+        .item {
+            width: 25%;
+            padding: 2px;
+            min-height: 210px;
+            float: left;
+            /*margin: 2px;*/
+        }
+        .item img{
+            width: 100%;
+            border-radius: 5px;
+        }
+        .blue { background: blue; }
+
+        .selected {
+            background: #4ba4a1;
+            color: white;
+        }
+
+        /**** Isotope Filtering ****/
+
+        .isotope-item {
+            z-index: 2;
+        }
+
+        .isotope-hidden.isotope-item {
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /**** Isotope CSS3 transitions ****/
+
+        .isotope,
+        .isotope .isotope-item {
+            -webkit-transition-duration: 0.8s;
+            -moz-transition-duration: 0.8s;
+            transition-duration: 0.8s;
+        }
+
+        .isotope {
+            -webkit-transition-property: height, width;
+            -moz-transition-property: height, width;
+            transition-property: height, width;
+        }
+
+        .isotope .isotope-item {
+            -webkit-transition-property: -webkit-transform, opacity;
+            -moz-transition-property:    -moz-transform, opacity;
+            transition-property:         transform, opacity;
+        }
+        .icon-bg{
+            background: url("images/sprite.png") no-repeat;
+        }
+        .guru{
+
+            background-position: 11px 13px;
+        }
+        .upwork{
+            background-position: -64px 13px;
+        }
+        .peopleperhour{
+            background-position: 11px -23px;
+        }
+        .freelancer{
+            background-position: 11px -59px;
+        }
+        .col-6{
+            width: 45%;
+            display: inline-block;
+        }
+        .education{
+            position: relative;
+        }
+        .education-2{
+            margin: 40px 0 0 0;
+
+        }
+        .education-1:after{
+            content: " ";
+            position: absolute;
+            width: 10%;
+            height: 1px;
+            background: #c4b6b6;
+            left: 100%;
+            top: 50%;
+        }
+        .hubstaff {
+            background-position: -64px -23px;
+        }
+        .education-1:before{
+            content: " ";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #408582;
+            top: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            right: -10%;
+            margin-top: -5px;
+            z-index: 10;
+            margin-right: -10px;
+        }
+        .education-2:after{
+            content: " ";
+            position: absolute;
+            width: 10%;
+            height: 1px;
+            background: #c4b6b6;
+            right: 100%;
+            top: 50%;
+        }
+        .education-2:before{
+            content: " ";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #408582;
+            top: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            left: -10%;
+            margin-top: -5px;
+            z-index: 10;
+            margin-left: -10px;
+        }
+        .education-info{
+            position: relative;
+            width: 100%;
+            float: left;
+            margin-bottom: 20px;
+        }
+        .education-info:after{
+            content: " ";
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: #c4b6b6;
+            right: 50%;
+            top: 0;
+        }
+        .portfolio{
+            min-height: 800px;
+        }
+        .bio-box b{
+            display: inline-block;
+            min-width: 80px;
+        }
+        .bio-box a{
+            text-decoration: none;
+            color: #333;
+        }
+        .pub-list li {
+            margin-bottom: 20px;
+            list-style: decimal;
+        }
+        @media only screen and (max-width: 1100px) {
+            .education-2:before{
+                margin-left: -9px;
+            }
+            .education-1:before{
+                margin-right: -9px;
+            }
+        }
+        @media only screen and (max-width: 800px) {
+            .image-box{
+                width: 100%;
+            }
+            .image-box img{
+                display: table;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="wrapper">
+        <h2 class="name white-color">Lilit Galstyan</h2>
+        <h3 class="bio white-color"> FrontEnd developer</h3>
+
+    </div>
+</header>
+<div>
+    <div class="wrapper">
+        <div class="top-box">
+            <div class="fl image-box">
+                <img src="images/LILIT_img.png" alt="Lilit Galstyan">
+            </div>
+            <div class="fl bio-box">
+                <ul>
+                    <li>
+                        <h2 >I'm Lilit Galstyan.</h2>
+                        <p>
+                            I am FrontEnd developer and I <br> have over 2 years experience.
+                        </p>
+                    </li>
+                    <li>
+                        <span> <b> Age: </b> 35</span>
+                    </li>
+                    <li>
+                        <span> <b> Email: </b> <a href="mailto:lilitgalstyan2222@gmail.com">lilitgalstyan2222@gmail.com</a></span>
+                    </li>
+                    <li>
+                        <span> <b> Phone:  </b> <a href="tel:+37498228066">+37498228066</a></span>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <h2 class="block-title">Skills</h2>
+        <div class="white-box">
+            <p>
+                HTML5, CSS3, SASS, BOOTSTRAP4, Mailchimp Template
+            </p>
+            <p>
+                jQuery, JavaScript, AJAX, SQL, SEO, Linux
+            </p>
+            <p>
+                WordPress, Shopify, Responsive Web Design
+            </p>
+            <p>
+                Version Control - GIT, Photoshop, Visual Basic
+            </p>
+            <p>
+                MS Office, MS Project, JMP, Mathcad Professional
+            </p>
+            <p>
+                <b> LANGUAGE SKILLS:</b> <br>
+                Armenian        –          Native <br>
+                Russian         –          Excellent <br>
+                English         –          Good
+            </p>
+        </div>
+        <h2 class="block-title">Work Experience</h2>
+        <div class="white-box">
+            <p>
+                <b> FrontEnd developer</b>
+            </p>
+            <p>
+                Working with big team, Armenia Yerevan <br>
+                Aug 2018 - present <br>
+            </p>
+
+            <p>
+                <b> Lecturer of Information Technologies</b>
+            </p>
+            <p>
+                ASUE, Yerevan, Armenia<br>
+                Sep 2013 -  Sep 2017<br>
+                I have been lecturer, asistant.
+            </p>
+            <p>
+                <b>Laboratory assistant</b>
+            </p>
+            <p>
+                ASUE, Yerevan, Armenia<br>
+                Feb 2008 - June 2013<br>
+                I worked as a laboratory assistant.
+            </p>
+            <p>
+                <b>Lecturer of Information Technologies</b>
+            </p>
+            <p>
+                ASUE, Yerevan, Armenia<br>
+                Sep 2006 - Sep 2007
+            </p>
+        </div>
+        <h2 class="block-title">Formal   Education</h2>
+        <div class="education-info">
+            <div class="col-6">
+                <div class="white-box education education-1">
+                    <p>2001 - 2006</p>
+                    <p>
+                        MA (master‘s degree)  Information technology and systems  ARMENIAN STATE UNIVERSITY OF ECONOMY
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 fr">
+                <div class="white-box education education-2">
+                    <p>2006 - 2010</p>
+                    <p>
+                        PhD (candidate of economy)  ARMENIAN STATE UNIVERSITY OF ECONOMY
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="block-title">LIST OF PUBLISHED ARTICLES</h2>
+        <div class="white-box" style="padding: 30px 50px;">
+            <ul class="pub-list">
+                <li>The pollution factor in the water resources control system of Lake Sevan, Agroscience, 11-12, Yerevan 2010, pp. 566-569</li>
+                <li>Strategies and System of Models of Effective Management of Resources of Lake Sevan, Banber, ASUE, 2 (20), Yerevan 2010, pp. 107-119</li>
+                <li>The problems of Water Resources Control in the Republic of Armenia, Information Technologies and Management 7, Yerevan 2010, pp. 274-285</li>
+                <li>co-author with Manukyan G.T.  Financial Supply Control Systems Features in the market economy development, Finance and Economy, Armenia, # 6 (144) June 2012, pp. 18-19</li>
+                <li>Micropayments, Social-Economic Problems of Regional Development in RA, Materials of the Republican Conference, Yeghegnadzor 2014, pp. 320-329</li>
+                <li>Olap Data Processing Technology, Crisis Management and Technology, Yer .: RA MES Crisis Management State Academy, N 8, 2014, p. 69-72</li>
+            </ul>
+        </div>
+
+        <h2 class="block-title">Projects for the last 2 years</h2>
+        <div class="white-box portfolio">
+            <ul id="filters">
+                <li><button data-filter="*" class="selected">Show all</button></li>
+                <li><button data-filter=".laravel" >Laravel</button></li>
+                <li><button data-filter=".wordpress">Wordpress</button></li>
+            </ul>
+
+            <div id="container">
+                <div class="item wordpress">
+                    <a href="https://mikecoluzzi.com/" target="_blank">
+                        <img src="images/mike-coluzzi.png" alt="mike-coluzzi">
+                    </a>
+                </div>
+                <div class="item wordpress">
+                    <a href="https://cerlos.io" target="_blank">
+                        <img src="images/cerlos.png" alt="cerlos">
+                    </a>
+                </div>
+                <div class="item wordpress">
+                    <a href="https://mikeregina.io/" target="_blank">
+                        <img src="images/mike-regina.png" alt="mike-regina">
+                    </a>
+                </div>
+                <div class="item laravel">
+                    <a href="http://www.mustangcpu.com/" target="_blank">
+                        <img src="images/mustang.png" alt="Mustang">
+                    </a>
+                </div>
+                <div class="item wordpress">
+                    <a href="http://jetdata.io/" target="_blank">
+                        <img src="images/jetdata.png" alt="jetdata">
+                    </a>
+                </div>
+                <div class="item laravel">
+                    <a href="http://158.106.138.245" target="_blank">
+                        <img src="images/valenzano.png" alt="valenzano">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script>
+    //   $( document ).ready(function() {
+    $(function(){
+
+        var $container = $('#container'),
+            $filterLinks = $('#filters button');
+
+        $container.isotope({
+            itemSelector: '.item',
+            filter: '*'
+        });
+
+        $filterLinks.click(function(){
+            var $this = $(this);
+
+            // don't proceed if already selected
+            if ( $this.hasClass('selected') ) {
+                return;
+            }
+
+            $filterLinks.filter('.selected').removeClass('selected');
+            $this.addClass('selected');
+
+            // get selector from data-filter attribute
+            selector = $this.data('filter');
+
+            $container.isotope({
+                filter: selector
+            });
+
+
+        });
+
+    });
+    // });
+
+</script>
+</body>
+</html>
